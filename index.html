@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مستر مصطفى | Smart Watch</title>
+<style>
+*{box-sizing:border-box}
+:root{--neon:#00f5ff}
+body{margin:0;font-family:Tahoma,Arial,sans-serif;color:#fff;background:radial-gradient(ellipse at top,#18254b 0%,#070b17 65%);text-align:center;min-height:100vh}
+header{padding:24px 15px 10px}.logo{font-size:14px;letter-spacing:3px;color:var(--neon)}
+h1{font-size:clamp(27px,7vw,42px);margin:18px 0 10px}h1 span{color:var(--neon);text-shadow:0 0 18px var(--neon)}
+.subtitle{color:#b9c5e3;line-height:1.9;font-size:14px}
+.welcome{margin:20px auto;padding:16px;max-width:420px;width:92%;border:1px solid #34456a;border-radius:18px;background:#111a2dcc}
+.welcome strong{color:var(--neon)}
+.watch-area{padding:15px 0 25px}.strap{width:83px;height:80px;margin:auto;background:linear-gradient(90deg,#131827,#39445d,#111522);border-radius:24px;border:2px solid #48516a}
+.watch{width:205px;height:235px;margin:-5px auto;border:8px solid #758098;border-radius:53px;background:#050812;box-shadow:0 0 0 4px #20283a,0 0 25px var(--neon),0 0 65px color-mix(in srgb,var(--neon),transparent 65%);display:flex;flex-direction:column;justify-content:center;align-items:center;position:relative;transition:box-shadow .4s,border-color .4s;animation:float 3s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+.watch:before{content:"";position:absolute;inset:7px;border:1px solid var(--neon);border-radius:38px;opacity:.5;pointer-events:none}
+.watch-time{font-size:38px;font-weight:bold;letter-spacing:1px;text-shadow:0 0 15px var(--neon)}.watch-date{color:#aab6d0;font-size:12px;margin-top:5px}.face{font-size:44px;margin:9px;filter:drop-shadow(0 0 12px var(--neon))}.watch-mood{font-size:13px;color:var(--neon)}.strap.bottom{margin-top:-5px}
+.section{max-width:520px;margin:25px auto;padding:0 16px}.section h2{font-size:21px}.section p{color:#aebbd7;font-size:13px;line-height:1.8}
+.moods{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px;margin-top:18px}
+button{font-family:inherit;cursor:pointer;color:white;-webkit-tap-highlight-color:transparent}.mood-btn{padding:16px 8px;border:1px solid #34405e;border-radius:15px;background:#131c31;font-size:15px;transition:.25s}.mood-btn:active{transform:scale(.96)}.mood-btn.active{border-color:var(--neon);box-shadow:0 0 16px color-mix(in srgb,var(--neon),transparent 65%);background:#1a2940}.mood-btn small{display:block;color:#aab7d2;margin-top:6px;font-size:11px}
+.control{background:#10182a;border:1px solid #2b3856;border-radius:18px;padding:18px;margin-top:18px}input[type=range]{width:100%;accent-color:var(--neon);margin:18px 0 8px}
+.action{border:1px solid var(--neon);background:transparent;border-radius:12px;padding:13px 16px;margin:5px;font-size:14px}.action.primary{background:var(--neon);color:#07101b;font-weight:bold}
+footer{padding:25px 15px 35px;color:#8795b3;font-size:12px;line-height:2}footer span{color:var(--neon)}
+</style>
+</head>
+<body>
+<header>
+<div class="logo">✦ MOUSTAFA SMART TECH ✦</div>
+<h1>أهلاً بيك يا <span>مستر مصطفى</span> 👑</h1>
+<div class="subtitle">عالم الساعات الذكية بين إيديك<br>اختار مودك وخلي ساعتك تتكلم عنك!</div>
+</header>
+<div class="welcome" id="welcome">✨ نورت موقعك يا <strong>مستر مصطفى</strong> ✨<br><span style="font-size:13px;color:#b8c6e3">ساعتك، مودك، لونك المفضل!</span></div>
+<div class="watch-area"><div class="strap"></div>
+<div class="watch" id="watch"><div class="watch-time" id="time">00:00:00</div><div class="watch-date" id="date">أهلاً بيك</div><div class="face" id="face">😊</div><div class="watch-mood" id="moodText">مود السعادة</div><div style="font-size:10px;color:#6f819f;margin-top:10px">SMART WATCH PRO</div></div>
+<div class="strap bottom"></div></div>
+<section class="section"><h2>🎭 اختار مودك</h2><p>اضغط على المود اللي شبهك وشوف الساعة وهي بتغيّر لونها وإضاءتها.</p>
+<div class="moods">
+<button class="mood-btn active" onclick="setMood(this,'#00f5ff','😊','السعادة','مبسوط ورايق')">😄 مبسوط<small>أزرق سماوي</small></button>
+<button class="mood-btn" onclick="setMood(this,'#a855f7','😌','الهدوء','رايق وهادي')">😌 هادي<small>بنفسجي ملكي</small></button>
+<button class="mood-btn" onclick="setMood(this,'#ff398a','❤️','الحب','القلب مليان حب')">❤️ رومانسي<small>وردي نيون</small></button>
+<button class="mood-btn" onclick="setMood(this,'#ffae32','🔥','الحماس','جاهز تكسر الدنيا')">🔥 متحمس<small>برتقالي ناري</small></button>
+<button class="mood-btn" onclick="setMood(this,'#38ff88','🌿','الانتعاش','طاقة إيجابية')">🌿 فريش<small>أخضر مضيء</small></button>
+<button class="mood-btn" onclick="setMood(this,'#ffffff','🌙','الليل','وقت الاسترخاء')">🌙 مود الليل<small>أبيض قمري</small></button>
+</div>
+<div class="control"><h3>💡 تحكم في إضاءة الساعة</h3><p>حرّك المؤشر عشان تتحكم في قوة التوهج.</p><input type="range" id="brightness" min="10" max="100" value="75" oninput="setBrightness(this.value)"><div id="brightnessText">قوة الإضاءة: 75%</div></div>
+<div class="control"><h3>🎲 مش عارف تختار مود إيه؟</h3><p>سيب الاختيار للساعة واكتشف لون جديد!</p><button class="action primary" onclick="randomMood()">✨ اختارلي مود عشوائي</button><button class="action" onclick="toggleGlow()">💫 تشغيل / إيقاف الوميض</button></div>
+</section>
+<footer><span>✦ MOUSTAFA SMART WATCH ✦</span><br>تصميم تجريبي خاص بمستر مصطفى 👑<br>اصنع مودك، اختار لونك، وخليك مختلف.</footer>
+<script>
+const root=document.documentElement;let currentColor='#00f5ff';let glowOn=true;
+function updateClock(){const now=new Date();document.getElementById('time').textContent=now.toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit',second:'2-digit'});document.getElementById('date').textContent=now.toLocaleDateString('ar-EG',{weekday:'short',day:'numeric',month:'short'});}
+updateClock();setInterval(updateClock,1000);
+function setMood(button,color,emoji,mood,message){currentColor=color;root.style.setProperty('--neon',color);document.getElementById('face').textContent=emoji;document.getElementById('moodText').textContent='مود '+mood;document.querySelectorAll('.mood-btn').forEach(btn=>btn.classList.remove('active'));button.classList.add('active');document.getElementById('welcome').innerHTML='✨ '+message+' يا مستر مصطفى ✨<br><span style="font-size:13px;color:#b8c6e3">لون ساعتك اتغير على حسب اختيارك!</span>';updateGlow();}
+function setBrightness(value){document.getElementById('brightnessText').textContent='قوة الإضاءة: '+value+'%';updateGlow();}
+function updateGlow(){const value=Number(document.getElementById('brightness').value);const watch=document.getElementById('watch');watch.style.boxShadow=glowOn?'0 0 0 4px #20283a, 0 0 '+(value/3)+'px '+currentColor+', 0 0 '+value+'px '+currentColor+'66':'0 0 0 4px #20283a';watch.style.borderColor=glowOn?currentColor:'#758098';}
+function randomMood(){const buttons=[...document.querySelectorAll('.mood-btn')];buttons[Math.floor(Math.random()*buttons.length)].click();}
+function toggleGlow(){glowOn=!glowOn;updateGlow();}
+</script>
+</body>
+</html>
